@@ -1,4 +1,4 @@
-import { http } from './../../../../api/curso_adonis_api_yt/config/app';
+// import { http } from './../../../../api/curso_adonis_api_yt/config/app';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -39,5 +39,6 @@ export class MomentService {
   updateMoment(id: number, formData: FormData): Observable<FormData> {
     const url = `${this.apiUrl}/${id}`;
     return this.http.put<FormData>(url, formData);
+
   }
 }
