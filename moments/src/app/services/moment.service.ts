@@ -1,18 +1,16 @@
-// import { http } from './../../../../api/curso_adonis_api_yt/config/app';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { Moment } from '../components/pages/Moment';
 import { Response } from '../components/pages/Response';
+
 import { environment } from 'src/environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-
 export class MomentService {
-
   private baseApiUrl = environment.baseApiUrl;
   private apiUrl = `${this.baseApiUrl}api/moments`;
 
@@ -27,8 +25,8 @@ export class MomentService {
     return this.http.get<Response<Moment>>(url);
   }
 
-  createMoment(formDate: FormData): Observable<FormData> {
-    return this.http.post<FormData>(this.apiUrl, formDate);
+  createMoment(formData: FormData): Observable<FormData> {
+    return this.http.post<FormData>(this.apiUrl, formData);
   }
 
   removeMoment(id: number) {
@@ -39,6 +37,5 @@ export class MomentService {
   updateMoment(id: number, formData: FormData): Observable<FormData> {
     const url = `${this.apiUrl}/${id}`;
     return this.http.put<FormData>(url, formData);
-
   }
 }
